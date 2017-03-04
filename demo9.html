@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <input id="oBtn" type="button" onclick="show()" name="" value="已点击0次">
+    <input id="oBtn" type="button" onclick="clean()" name="" value="清除">
+    <script>
+        document.getElementById('oBtn').value = "已点击" + localStorage.buttonCount + "次";
+
+        function show() {
+            if (localStorage.buttonCount) {
+                localStorage.buttonCount = Number(localStorage.buttonCount) + 1;
+            } else {
+                localStorage.buttonCount = 1;
+            }
+
+            document.getElementById('oBtn').value = "已点击" + localStorage.buttonCount + "次";
+        }
+
+        function clean() {
+            localStorage.clear();
+            document.getElementById('oBtn').value = "已点击" + 0 + "次"
+        }
+    </script>
+</body>
+
+</html>
