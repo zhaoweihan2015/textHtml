@@ -42,7 +42,11 @@
             var start = 0;
             var end = leng;
             var num = printBubble(arr, start, end, mid, x);
-            alert(num);
+            if (num == -1) {
+                alert("别瞎输入，不存在的");
+            } else {
+                alert(num);
+            }
         }
 
         function printBubble(arr, start, end, mid, x) {
