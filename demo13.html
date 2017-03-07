@@ -26,15 +26,12 @@
                         document.getElementById("printNumber").innerHTML += arr + "<br/>";
                     }
                 }
-                if (num == 0) {
-                    return
-                }
                 num -= 1;
             }
         }
         // 二分法查找
         var arr2 = [2, 7, 10, 15, 20, 35, 44, 51, 57, 68, 69, 71, 79, 82, 89, 90, 100, 129, 147];
-        BubbleTest(arr2, 8);
+        // BubbleTest(arr2, 8);
 
         function BubbleTest(arr, x) {
             var leng = arr.length;
@@ -62,6 +59,24 @@
             }
             mid = parseInt((start + end) / 2);
             return printBubble(arr, start, end, mid, x);
+        }
+        // 二分法查找
+        alert(BubbleTest2(arr2, 15));
+
+        function BubbleTest2(arr, x) {
+            var start = 0;
+            var end = arr.length - 1;
+            while (start <= end) {
+                var mid = parseInt((start + end) / 2);
+                if (arr[mid] > x) {
+                    end = mid - 1;
+                } else if (arr[mid] < x) {
+                    start = mid + 1;
+                } else {
+                    return mid;
+                }
+            }
+            return "别瞎输入，不存在的";
         }
     </script>
 </body>
