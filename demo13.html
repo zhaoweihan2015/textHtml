@@ -34,18 +34,18 @@
         }
         // 二分法查找
         var arr2 = [2, 7, 10, 15, 20, 35, 44, 51, 57, 68, 69, 71, 79, 82, 89, 90, 100, 129, 147];
-        erfen(arr2, 8);
+        BubbleTest(arr2, 8);
 
-        function erfen(arr, x) {
+        function BubbleTest(arr, x) {
             var leng = arr.length;
             var mid = parseInt(leng / 2);
             var start = 0;
             var end = leng;
-            var num = printErfen(arr, start, end, mid, x);
+            var num = printBubble(arr, start, end, mid, x);
             alert(num);
         }
 
-        function printErfen(arr, start, end, mid, x) {
+        function printBubble(arr, start, end, mid, x) {
             if (start > end) {
                 return -1
             }
@@ -57,7 +57,7 @@
                 return mid;
             }
             mid = parseInt((start + end) / 2);
-            return printErfen(arr, start, end, mid, x);
+            return printBubble(arr, start, end, mid, x);
         }
     </script>
 </body>
