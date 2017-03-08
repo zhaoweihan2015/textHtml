@@ -79,8 +79,52 @@
             }
             return "别瞎输入，不存在的";
         }
+
+        //快速排序(二)
+        arr3 = [6, 4, 2, 11, 1, 10];
+
+        function quickSort2(arr) {
+            function sort(start, end) {
+                if ((end - start) < 1) {
+                    return
+                }
+                var i = start;
+                var j = end - 1;
+                var kindex = i;
+                var k = arr[kindex];
+                var x = null;
+                while (i < j) {
+                    for (; j > i; j--) {
+                        if (arr[j] < k) {
+                            x = arr[j];
+                            arr[j] = k;
+                            arr[kindex] = x;
+                            kindex = j;
+                            break;
+                        }
+                    }
+                    for (; i < j; i++) {
+                        if (arr[i] > k) {
+                            x = arr[i];
+                            arr[i] = k;
+                            arr[kindex] = x;
+                            kindex = i;
+                            break;
+                        }
+                    }
+                }
+                sort(0, i);
+                sort(i + 1, end);
+            }
+            sort(0, arr.length);
+            return arr;
+        }
+
+        function show(arr) {
+            return arr
+        }
+        document.getElementById("printNumber").innerHTML += quickSort2(arr3) + "<br/>";
         //快速排序(一)
-        arr3 = [6, 4, 2, 11, 12, 5, 7, 3, 8, 1, 10, 9];
 
         function quickSort(arr) {
             if (arr.length <= 1) {
@@ -98,46 +142,7 @@
             }
             return quickSort(leftarr).concat([k], quickSort(rightarr));
         }
-        console.log(quickSort(arr3));
-        //快速排序(二)
-        function quickSort2(arr) {
-            function sort(start, end) {
-                if ((end - start) < 1) {
-                    return
-                }
-                var i = start;
-                var j = end - 1;
-                var kindex = start;
-                var k = arr[kindex];
-                var x = null;
-                while (i < j) {
-                    for (; j > i; j--) {
-                        if (arr[j] < k) {
-                            x = arr[j];
-                            arr[j] = k;
-                            arr[kindex] = x;
-                            kindex = j;
-                            break;
-                        }
-                    }
-                    for (; i <= j; i++) {
-                        if (arr[i] > k) {
-                            x = arr[i];
-                            arr[i] = k;
-                            arr[kindex] = x;
-                            kindex = i;
-                            break;
-                        }
-                    }
-                }
-                // sort(0, i);
-                // sort(i + 1, end);
-            }
-            sort(0, arr.length);
-            return arr;
-        }
-
-        console.log(quickSort2(arr3));
+        document.getElementById("printNumber").innerHTML += quickSort(arr3) + "<br/>";
     </script>
 </body>
 
