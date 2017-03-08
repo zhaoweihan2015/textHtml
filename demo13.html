@@ -12,7 +12,7 @@
     <script>
         //冒泡排序
         var arr = [11, 2, 4, 10, 9, 3];
-        bubbleSort(arr);
+        // document.getElementById("printNumber").innerHTML += bubbleSort(arr) + "<br/>";
 
         function bubbleSort(arr) {
             var num = arr.length - 1;
@@ -23,12 +23,13 @@
                         Midnum = arr[i + 1];
                         arr[i + 1] = arr[i];
                         arr[i] = Midnum;
-                        document.getElementById("printNumber").innerHTML += arr + "<br/>";
                     }
                 }
                 num -= 1;
             }
+            return arr;
         }
+
         // 二分法查找
         var arr2 = [2, 7, 10, 15, 20, 35, 44, 51, 57, 68, 69, 71, 79, 82, 89, 90, 100, 129, 147];
         // BubbleTest(arr2, 8);
@@ -61,7 +62,7 @@
             return printBubble(arr, start, end, mid, x);
         }
         // 二分法查找
-        alert(BubbleTest2(arr2, 15));
+        // alert(BubbleTest2(arr2, 15));
 
         function BubbleTest2(arr, x) {
             var start = 0;
@@ -78,6 +79,65 @@
             }
             return "别瞎输入，不存在的";
         }
+        //快速排序(一)
+        arr3 = [6, 4, 2, 11, 12, 5, 7, 3, 8, 1, 10, 9];
+
+        function quickSort(arr) {
+            if (arr.length <= 1) {
+                return arr;
+            }
+            var k = arr.splice(0, 1)[0];
+            var leftarr = [];
+            var rightarr = [];
+            for (var i = 0; i < arr.length; i++) {
+                if (k > arr[i]) {
+                    leftarr.push(arr[i]);
+                } else {
+                    rightarr.push(arr[i]);
+                }
+            }
+            return quickSort(leftarr).concat([k], quickSort(rightarr));
+        }
+        console.log(quickSort(arr3));
+        //快速排序(二)
+        function quickSort2(arr) {
+            function sort(start, end) {
+                if ((end - start) < 1) {
+                    return
+                }
+                var i = start;
+                var j = end - 1;
+                var kindex = start;
+                var k = arr[kindex];
+                var x = null;
+                while (i < j) {
+                    for (; j > i; j--) {
+                        if (arr[j] < k) {
+                            x = arr[j];
+                            arr[j] = k;
+                            arr[kindex] = x;
+                            kindex = j;
+                            break;
+                        }
+                    }
+                    for (; i <= j; i++) {
+                        if (arr[i] > k) {
+                            x = arr[i];
+                            arr[i] = k;
+                            arr[kindex] = x;
+                            kindex = i;
+                            break;
+                        }
+                    }
+                }
+                // sort(0, i);
+                // sort(i + 1, end);
+            }
+            sort(0, arr.length);
+            return arr;
+        }
+
+        console.log(quickSort2(arr3));
     </script>
 </body>
 
