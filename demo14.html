@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <style type="text/css">
+        [title~=oTile] {
+            color: red
+        }
+        
+        .name[index] {
+            color: red
+        }
+        
+        div:first-child {
+            color: blue
+        }
+        
+        div>i:first-child {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 title="oTile">111</h2>
+    <h2 title="hello oTile">111</h2>
+    <h2 title="oTile hello">222</h2>
+    <div style="word-spacing: 1em">this is why</div>
+
+    <div class="name">
+        sdasd
+        <div>asdasd</div>
+    </div>
+    <div class="name" index=1>
+        sdasd
+    </div>
+
+    <div>
+        <i>ceshi</i>
+        <i>ceshi</i>
+        <i>ceshi</i>
+    </div>
+</body>
+
+</html>

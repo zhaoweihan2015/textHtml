@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script>
+        var arr = [2, 9, 5, 4, 7, 6, 1];
+        document.getElementsByTagName("div")[0].innerHTML = insertion_sort(arr);
+
+        function insertion_sort(arr) {
+            var n = 1
+            var k = 0;
+            while (n < arr.length) {
+                for (var i = n; i > 0; i--) {
+                    if (arr[i] < arr[i - 1]) {
+                        k = arr[i];
+                        arr[i] = arr[i - 1];
+                        arr[i - 1] = k;
+                    } else {
+                        break
+                    }
+                }
+                n++;
+            }
+            return arr;
+        }
+    </script>
+</body>
+
+</html>

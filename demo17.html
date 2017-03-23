@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--三列布局1-->
+    <style type="text/css">
+        .box1>div:first-of-type,
+        .box1>div:nth-of-type(2) {
+            background: lightcoral;
+            height: 300px;
+            width: 200px;
+            float: left;
+        }
+        
+        .box1>div:nth-of-type(2) {
+            float: right;
+        }
+        
+        .box1>div:nth-of-type(3) {
+            height: 300px;
+            background: lightblue;
+            overflow: hidden;
+        }
+    </style>
+    <div class="box1">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <!--三列布局2-->
+    <style type="text/css">
+        .box2 {
+            position: relative;
+        }
+        
+        .box2>div:first-of-type,
+        .box2>div:nth-of-type(3) {
+            background: mediumvioletred;
+            height: 300px;
+            width: 200px;
+            position: absolute;
+        }
+        
+        .box2>div:nth-of-type(3) {
+            right: 0px;
+            top: 0px;
+        }
+        
+        .box2>div:nth-of-type(2) {
+            height: 300px;
+            background: darkblue;
+        }
+    </style>
+    <div class="box2">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <!--三列布局3-->
+    <style type="text/css">
+        .box3>div:nth-of-type(2),
+        .box3>div:nth-of-type(3) {
+            background: red;
+            height: 300px;
+            width: 200px;
+            float: left;
+        }
+        
+        .box3>div:nth-of-type(2) {
+            margin-left: -100%;
+        }
+        
+        .box3>div:nth-of-type(3) {
+            margin-left: -200px;
+        }
+        
+        .box3>div:first-of-type {
+            height: 300px;
+            background: blue;
+            float: left;
+            width: 100%;
+        }
+        
+        .box3>div>div {
+            margin: 0 200px;
+            background: green;
+        }
+    </style>
+    <div class="box3">
+        <div>
+            <div>asdasd</div>
+        </div>
+        <div></div>
+        <div></div>
+    </div>
+    <!--三列布局4-->
+    <style type="text/css">
+        .box4 {
+            flex-flow: row;
+            display: flex;
+            width: 100%;
+        }
+        
+        .box4>div:first-of-type,
+        .box4>div:last-of-type {
+            width: 200px;
+            height: 300px;
+            background: palevioletred;
+        }
+        
+        .box4>div:nth-of-type(2) {
+            background: lightblue;
+            width: 100%;
+            height: 300px;
+        }
+    </style>
+    <div class="box4">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

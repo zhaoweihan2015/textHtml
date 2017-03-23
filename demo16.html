@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <!--两列布局1-->
+    <style type="text/css">
+        .box1>div:first-of-type {
+            background: red;
+            height: 300px;
+            width: 200px;
+            float: left;
+        }
+        
+        .box1>div:last-of-type {
+            background: blue;
+            height: 300px;
+        }
+    </style>
+    <div class="box1">
+        <div></div>
+        <div></div>
+    </div>
+    <!--两列布局2-->
+    <style type="text/css">
+        .box2>div:first-of-type {
+            background: lightcoral;
+            height: 300px;
+            width: 200px;
+            position: absolute;
+        }
+        
+        .box2>div:last-of-type {
+            background: lightblue;
+            height: 300px;
+        }
+    </style>
+    <div class="box2">
+        <div></div>
+        <div></div>
+    </div>
+    <!--两列布局3-->
+    <style type="text/css">
+        .box3>div:first-of-type {
+            background: indianred;
+            height: 300px;
+            width: 200px;
+        }
+        
+        .box3>div:last-of-type {
+            background: dodgerblue;
+            height: 300px;
+            position: relative;
+            left: 200px;
+            top: -300px;
+        }
+    </style>
+    <div class="box3">
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>
