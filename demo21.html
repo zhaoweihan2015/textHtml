@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name: "Gua",
+            age: 21,
+            address: {
+                place: "Tianjin"
+            },
+            favorite: [
+                "swimming", {
+                    reading: "history books"
+                }
+            ],
+            skill: function() {
+                console.log("show me your money!!");
+            }
+        };
+        var obj2 = deepClone(obj);
+        obj2.address.place = "Beijing";
+        alert(obj.address.place);
+        // alert(isClass(obj));
+        // alert(1);
+
+        function isClass(obj) {
+            if (obj == null) {
+                return "Null";
+            } else if (obj == undefined) {
+                return "Undefined";
+            } else {
+                return Object.prototype.toString.call(obj).slice(8, -1);
+            }
+        }
+
+        function deepClone(obj) {
+            var result, oClass = isClass(obj);
+            if (oClass == "Object") {
+                result = {};
+            } else if (oClass == "Array") {
+                result = [];
+            } else {
+                return obj;
+            }
+            for (var key in obj) {
+                var copy = obj[key];
+                if (isClass(copy) == "Object") {
+                    result[key] = deepClone(copy);
+                } else if (isClass(copy) == "Array") {
+                    result[key] = deepClone(copy);
+                } else {
+                    result[key] = obj[key];
+                }
+            }
+            return result;
+        }
+    </script>
+</body>
+
+</html>
