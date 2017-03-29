@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--引用类型-->
+    <!--1.object类型-->
+    <script>
+        // 1.对象创建方法
+        var obj = new Object();
+        var obj = Object();
+        obj.name = "Ceshi";
+        var obj = {
+            name: "Ceshi"
+        }; //对象字面量是向函数传递大量可选参数的首选方式
+        // 2.对象内容的引用
+        var o = {
+                name: "Gua",
+                age: 21,
+                "first name": "Ceshi",
+                print: function() {
+                    alert("hello");
+                }
+            }
+            // test(o);
+        function test(obj) {
+            alert(obj.name + " " + obj.age);
+            obj.print();
+        }
+        // 3.对象属性使用方法
+        // show(o);
+        function show(obj) {
+            alert(obj.name);
+            alert(obj["name"]);
+            alert(obj["first name"]); //如果属性名中包含会导致语法错误的字符，只能使用 对象["属性名"]的方式
+        }
+    </script>
+    <!--2.Array类型-->
+    <script>
+        // 1.数组创建方法
+        var arr = new Array(); //空数组
+        var arr = new Array(20); //length为20的数组
+        var arr = new Array("red", "blue", "green"); //直接添加内容
+        var arr = Array();
+        var arr = [, , , , ]; //这样会产生一个长度为5或6的数组，禁止这样写
+        var arr = [];
+        // 2.数组内容读取
+        var a = ['red', 'blue', 'green'];
+        // showarr(a);
+
+        function showarr(arr) {
+            alert(arr[0] + " " + arr.length);
+            alert(arr[3]); //会直接输出undefind
+            arr.length = 2; //可以通过直接设置length截取数组
+            alert(arr[2]); //undefind
+            arr[arr.length] = "black"; //通过length直接添加新内容
+            arr[99] = "brown"; //3到98之间都是undefind
+        }
+        // 3.检测数组
+        function checharr(arr) {
+            if (Array.isArray(arr)) {
+                alert("Y");
+            }
+            if (arr instanceof Array) {
+                alert("y");
+            }
+        }
+        // 4.数组转化方式
+        function changearr(arr) {
+            alert(arr.toString());
+            alert(arr.valueOf());
+            alert(arr); //alert()会在后台使用toString()
+            alert(arr.join("||")); //red||blue||gree
+        }
+        // 5.栈方法
+        // sortArr1();
+
+        function sortArr1() {
+            //栈结构是后进先出，在顶端(数组尾)进行操作(推出Pop和推入Push)
+            var arr = [];
+            arr.push("red", "green");
+            arr.push("blue");
+            alert(arr);
+            var a = arr.pop(); //数组推出最新一项（数组本身有变化）
+            alert(a);
+            alert(arr);
+        }
+        // 6.队列方法
+        // sortArr2();
+
+        function sortArr2() {
+            //队列结构是后进后出，在两侧进行操作（shift,push）
+            var arr = [];
+            arr.push("red", "green", "blue");
+            alert(arr.shift()); //在数组顶端推出，并对数组本身有影响
+            alert(arr);
+            arr.unshift("purple"); //与shift()相反，在数组头部推入，对数组本身有影（返回数组长度）
+            alert(arr);
+        }
+        // 7.重排序方法
+        // sortReverse(a);
+
+        function sortReverse(arr) {
+            arr.reverse()
+            alert(arr); //数组反向
+            arr = [1, 10, 15, 5, 16, 88, 9];
+            arr.sort(); //数组排序有问题
+            alert(arr);
+
+            function compare(num1, num2) {
+                if (num1 < num2) {
+                    return -1;
+                } else if (num1 > num2) {
+                    return 1;
+                } else {
+                    return 0;
+                }
+            } //sort()方法重写，如需降序改写-1与+1
+            arr.sort(compare);
+            alert(arr);
+        }
+        // 8.操作方法
+        // DoArr();
+
+        function DoArr() {
+            var arr = [1, 2, 3, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 9];
+            //concat合并
+            var arr2 = arr.concat(2, 3, 4, [5, 6, 7]); //多数组拼接为一个数组,原数组并不变化，返回拼接后新数组
+            alert(arr2);
+            //slice查询
+            var arr2 = arr.slice(2, 5); //返回数组中对应区间内容，不修改原数组
+            alert(arr2);
+            //splice修改插入
+            var arr2 = arr.splice(1, 4); //删除起始位置后几项，修改原数组，返回删除项
+            alert(arr2);
+            alert(arr);
+            var arr2 = arr.splice(1, 0, 9, 9, 9, 9, 9, 9); //第二项后为起始位置添加的内容，若不删除（第二项为0），则无返回
+            alert(arr);
+        }
+        // 9.位置方法
+        // arrIndex();
+
+        function arrIndex() {
+            var arr = [1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 8, 5, 1, 4, 3, 2];
+            alert(arr.indexOf(3)); //从左往右第一项符合条件
+            alert(arr.lastIndexOf(3)); //从右往左第一项符合条件
+        }
+        // 10.迭代方法
+        a = [1, 2, 3, 4, 5, 6, 11, 7, 8, 8];
+        // everyArr(a);
+
+        function everyArr(a) {
+            var result = a.every(function(item) {
+                return item > 2;
+            }); //只要有一项不符合就返回false
+            alert(result);
+            //item,index.array
+        }
+        // someArr(a);
+
+        function someArr(a) {
+            var result = a.some(function(item) {
+                return item > 2;
+            }); //只要有一项符合就返回true
+            alert(result);
+            //item,index,array
+        }
+        // filterArr(a);
+
+        function filterArr(a) {
+            var result = a.filter(function(item) {
+                return item > 4;
+            }); //查询符合条件的项，并返回
+            alert(result);
+            //item,index,array
+        }
+        // mapArr(a);
+
+        function mapArr(a) {
+            var result = a.map(function(item) {
+                return item * 2;
+            }); //对数组中的值统一操作
+            alert(result);
+            alert(a); //原数组值不修改
+            //item,index,array
+        }
+        // foreachArr(a);
+
+        function foreachArr(a) {
+            var result = 0;
+            a.forEach(function(item) {
+                result += item;
+            }); //遍历所有项进行操作，无返回（注意是forEach不是foreach）
+            alert(result);
+        }
+        // 11.归并方法
+        // reduceArr(a);
+
+        function reduceArr(a) {
+            var result = a.reduce(function(prev, cur) {
+                    return prev + cur;
+                }) //对当前值和上一个值的操作，返回的任何值都作为上一个值（prev）
+            alert(result);
+            //prev,cur,index,array
+        }
+        // reduceRightArr(a);
+
+        function reduceRightArr(a) {
+            var result = a.reduceRight(function(prev, cur) {
+                return prev + cur;
+            });
+            alert(result);
+        }
+    </script>
+    <!--Date类型-->
+    <script>
+        // 1.date创建方法
+        var d = new Date(); //默认返回当前时间
+        d = new Date(Date.parse("May 5,2016")); // Date.parse方法，返回设定的时间
+        d = new Date("May 6 ,2000"); //date默认使用Date.pars()
+        d = new Date("2/17/2016"); //parse拥有多种方式
+        d = new Date(Date.UTC(2017, 1, 12, 15, 12, 12)); //utc格式固定
+        d = new Date(Date.UTC(2000, 0)); //utc内若未填自动补零（有时差）
+        d = Date.now(); //返回当前时间戳
+        d = +new Date(); //与Date.now()效果相同
+        // alert(d);
+        // timeCheck();
+
+        function timeCheck() {
+            var d1 = new Date(2007, 0, 1);
+            var d2 = new Date(2007, 1, 1);
+            if (d2 - d1 > 0) {
+                alert("True"); //可以进行大小比较
+            }
+        };
+        // 2.API
+        ApiTime();
+
+        function ApiTime() {
+            var time = new Date();
+            var time1 = time.getTime(); //返回当前时间戳
+            var time1 = time.getFullYear();
+            var time1 = time.getUTCFullYear();
+            alert(time1);
+        }
+    </script>
+</body>
+
+</html>
